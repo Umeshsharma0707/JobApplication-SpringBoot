@@ -22,7 +22,7 @@ public class JobController {
 
 	private List<Job> jobs = new ArrayList<>();
 	
-	private int nextId = 1060;
+	
 	
 	@Autowired
 	private JobService jobService;
@@ -34,8 +34,7 @@ public class JobController {
 	
 	@PostMapping("/jobs")
 	public ResponseEntity<String> createJob(@RequestBody Job job) { 
-		job.setId(nextId);
-		nextId++;
+		
 		jobService.createJob(job);
 		return new ResponseEntity<String>("job added successfully",HttpStatus.CREATED);
 	}

@@ -1,6 +1,16 @@
 package com.jobapp.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "jobs_table")
 public class Job {
+	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY )
 	private int id;
 	private String title;
 	private String desc;
@@ -10,7 +20,6 @@ public class Job {
 	
 	public Job() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Job(int id, String title, String desc, String minSalary, String maxSalary, String location) {
 		super();
