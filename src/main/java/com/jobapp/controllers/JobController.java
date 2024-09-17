@@ -2,6 +2,7 @@ package com.jobapp.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jobapp.models.Company;
 import com.jobapp.models.Job;
+import com.jobapp.services.CompanyRepository;
 import com.jobapp.services.JobService;
 
 @RestController
@@ -27,13 +30,23 @@ public class JobController {
 	@Autowired
 	private JobService jobService;
 	
+	@Autowired
+	private CompanyRepository companyRepository;
+	
 	@GetMapping("/jobs")
-	public ResponseEntity<List<Job>> finAll(){
+	public ResponseEntity<List<Job>> findAll(){
 		return ResponseEntity.ok(jobService.findAll());
 	}
 	
 	@PostMapping("/jobs")
 	public ResponseEntity<String> createJob(@RequestBody Job job) { 
+		
+		
+		 Company company = companyRepository.findById(job.getCompany().getId()).orElse(null);
+		 
+		  if(company != null) { job.setCompany(company); }else { return new
+		 ResponseEntity<String>("company not found",HttpStatus.NOT_FOUND); }
+		 
 		
 		jobService.createJob(job);
 		return new ResponseEntity<String>("job added successfully",HttpStatus.CREATED);

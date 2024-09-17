@@ -34,6 +34,17 @@ public class Job {
 		this.maxSalary = maxSalary;
 		this.location = location;
 	}
+	public Job(int id, String title, String desc, String minSalary, String maxSalary, String location,
+			Company company) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.desc = desc;
+		this.minSalary = minSalary;
+		this.maxSalary = maxSalary;
+		this.location = location;
+		this.company = company;
+	}
 	public int getId() {
 		return id;
 	}
