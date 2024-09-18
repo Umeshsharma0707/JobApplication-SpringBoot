@@ -15,7 +15,7 @@ public class Job {
 	@GeneratedValue(strategy =GenerationType.IDENTITY )
 	private int id;
 	private String title;
-	private String desc;
+	private String description;
 	private String minSalary;
 	private String maxSalary;
 	private String location;
@@ -25,21 +25,21 @@ public class Job {
 	public Job() {
 		super();
 	}
-	public Job(int id, String title, String desc, String minSalary, String maxSalary, String location) {
+	public Job(int id, String title, String description, String minSalary, String maxSalary, String location) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.desc = desc;
+		this.description = description;
 		this.minSalary = minSalary;
 		this.maxSalary = maxSalary;
 		this.location = location;
 	}
-	public Job(int id, String title, String desc, String minSalary, String maxSalary, String location,
+	public Job(int id, String title, String description, String minSalary, String maxSalary, String location,
 			Company company) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.desc = desc;
+		this.description = description;
 		this.minSalary = minSalary;
 		this.maxSalary = maxSalary;
 		this.location = location;
@@ -57,11 +57,11 @@ public class Job {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getMinSalary() {
 		return minSalary;
@@ -89,7 +89,7 @@ public class Job {
 	}
 	@Override
 	public String toString() {
-		return "Job [id=" + id + ", title=" + title + ", desc=" + desc + ", minSalary=" + minSalary + ", maxSalary="
+		return "Job [id=" + id + ", title=" + title + ", description=" + description + ", minSalary=" + minSalary + ", maxSalary="
 				+ maxSalary + ", location=" + location + ", company=" + company + "]";
 	}
 	

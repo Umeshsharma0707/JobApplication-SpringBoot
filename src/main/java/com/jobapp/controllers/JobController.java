@@ -62,7 +62,6 @@ public class JobController {
 		else {
 			return new ResponseEntity<String>("job not found",HttpStatus.NOT_FOUND);
 		}
-
 	}
 	
 	@DeleteMapping("/jobs/{id}")
